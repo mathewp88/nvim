@@ -5,6 +5,8 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
+    lazy = true,
+    event = "VimEnter",
     config = function()
       -- Global mappings.
       vim.keymap.set("n", "<space>w", vim.diagnostic.open_float)
@@ -25,7 +27,7 @@ return {
             -- 3
             buffer = ev.buf,
             callback = function()
-              vim.lsp.buf.format({ async = false, id = ev.data.client_id })
+              vim.lsp.buf.format({ async = true, id = ev.data.client_id })
             end,
           })
           -- Buffer local mappings.

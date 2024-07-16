@@ -12,8 +12,10 @@ return {
     "lewis6991/gitsigns.nvim"
   },
   keys = {
-    { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    { "<leader>gg", "<cmd>LazyGit<cr>", desc = "lazyGit" },
   },
+  lazy = true,
+  event = {"BufReadPre", "BufNewFile"},
   config = function ()
     require("gitsigns").setup()
   end

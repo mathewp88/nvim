@@ -6,6 +6,8 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
+  lazy = true,
+  event = "VimEnter",
 	config = function()
 		require("neo-tree").setup({
 			filesystem = {

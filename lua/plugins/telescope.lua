@@ -1,6 +1,8 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
+    event = "VimEnter",
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
@@ -13,6 +15,8 @@ return {
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
+    lazy = true,
+    event = "VimEnter",
     config = function()
       require("telescope").setup {
         extensions = {
