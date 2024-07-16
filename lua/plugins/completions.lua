@@ -15,7 +15,7 @@ return {
       "onsails/lspkind.nvim",
     },
     lazy = true,
-    event = "InsertEnter",
+    event = "VeryLazy",
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
