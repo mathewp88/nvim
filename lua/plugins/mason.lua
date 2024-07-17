@@ -22,7 +22,6 @@ return {
 					"lua_ls",
 					"jsonls",
 					"pyright",
-					"nil_ls", -- nix
 				},
 			})
 		end,
