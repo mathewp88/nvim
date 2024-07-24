@@ -13,6 +13,8 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "onsails/lspkind.nvim",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
     },
     lazy = true,
     event = "VeryLazy",
@@ -39,10 +41,19 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = 'path' },
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
         }),
+
+        cmp.setup.cmdline({ "/", "?" }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "buffer" },
+          },
+        }),
+
         formatting = {
           format = function(entry, vim_item)
             if vim.tbl_contains({ "path" }, entry.source.name) then
