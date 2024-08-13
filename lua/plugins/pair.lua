@@ -18,6 +18,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*",
+    lazy = true,
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
@@ -30,6 +31,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
+    lazy = true,
     event = "VeryLazy",
     config = function()
       require("nvim-ts-autotag").setup({})

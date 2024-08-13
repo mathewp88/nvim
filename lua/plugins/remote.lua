@@ -7,6 +7,7 @@ return {
       "MunifTanjim/nui.nvim",          -- To build the plugin UI
       "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
     },
+    lazy = true,
     event = "VeryLazy",
     config = function()
       require("remote-nvim").setup({
