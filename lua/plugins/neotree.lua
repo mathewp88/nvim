@@ -25,7 +25,7 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>e", "<Cmd>Neotree reveal<CR>")
+		vim.keymap.set("n", "<leader>e", "<Cmd>Neotree reveal reveal_force_cwd<CR>")
 		vim.keymap.set("n", "<leader>fe", "<Cmd>Neotree close<CR>")
 		vim.keymap.set("n", "<leader>re", "<Cmd>Neotree ~<CR>")
 		vim.keymap.set("n", "<leader>be", "<Cmd>Neotree buffers reveal<CR>")
