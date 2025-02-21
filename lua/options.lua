@@ -44,12 +44,25 @@ vim.cmd("set shiftwidth=2")
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+vim.diagnostic.config({
+  underline = true,
+  update_in_insert = true,
+  virtual_text = true,
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = "󰌵",
+    },
+  },
+  document_highlight = {
+    enabled = true,
+  },
+})
 
-vim.keymap.set('n', '<leader>uu', vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>li", ":Telescope ros2 interfaces<CR>", { desc = "[ROS 2]: List interfaces" })
 vim.keymap.set("n", "<leader>ln", ":Telescope ros2 nodes<CR>", { desc = "[ROS 2]: List nodes" })
