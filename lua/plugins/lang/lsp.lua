@@ -21,13 +21,6 @@ return {
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-					-- Autoformat on save
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = ev.buf,
-						callback = function()
-							vim.lsp.buf.format({ async = false, id = ev.data.client_id })
-						end,
-					})
 					-- Buffer local mappings.
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }

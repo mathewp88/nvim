@@ -5,22 +5,22 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true })
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_exec2(
-  [[
+	[[
   augroup numbertoggle
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
   augroup END
   ]],
-  {}
+	{}
 )
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertLeave" }, {
-  callback = function()
-    if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
-      vim.api.nvim_command("silent update")
-    end
-  end,
+	callback = function()
+		if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+			vim.api.nvim_command("silent update")
+		end
+	end,
 })
 
 vim.opt.breakindent = true
@@ -45,24 +45,24 @@ vim.cmd("set shiftwidth=2")
 vim.opt.clipboard = "unnamedplus"
 
 vim.diagnostic.config({
-  underline = true,
-  update_in_insert = true,
-  virtual_text = true,
-  severity_sort = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.HINT] = " ",
-      [vim.diagnostic.severity.INFO] = "󰌵",
-    },
-  },
-  document_highlight = {
-    enabled = true,
-  },
+	underline = true,
+	update_in_insert = true,
+	virtual_text = true,
+	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.INFO] = "󰌵",
+		},
+	},
+	document_highlight = {
+		enabled = true,
+	},
 })
 
-vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>li", ":Telescope ros2 interfaces<CR>", { desc = "[ROS 2]: List interfaces" })
 vim.keymap.set("n", "<leader>ln", ":Telescope ros2 nodes<CR>", { desc = "[ROS 2]: List nodes" })
