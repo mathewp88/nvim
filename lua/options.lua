@@ -70,6 +70,38 @@ vim.keymap.set("n", "<leader>la", ":Telescope ros2 actions<CR>", { desc = "[ROS 
 vim.keymap.set("n", "<leader>lt", ":Telescope ros2 topics_echo<CR>", { desc = "[ROS 2]: List topics" })
 vim.keymap.set("n", "<leader>ls", ":Telescope ros2 services<CR>", { desc = "[ROS 2]: List services" })
 
+-- ROS 1
+
+-- Topics list & info
+vim.keymap.set("n", "<leader>rtl", function()
+  require("ros-nvim.telescope.pickers").topic_picker()
+end, { desc = "ROS: List Topics" })
+
+-- Nodes list & info
+vim.keymap.set("n", "<leader>rnl", function()
+  require("ros-nvim.telescope.pickers").node_picker()
+end, { desc = "ROS: List Nodes" })
+
+-- Services list & info
+vim.keymap.set("n", "<leader>rsl", function()
+  require("ros-nvim.telescope.pickers").service_picker()
+end, { desc = "ROS: List Services" })
+
+-- Service definitions list & info
+vim.keymap.set("n", "<leader>rds", function()
+  require("ros-nvim.telescope.pickers").srv_picker()
+end, { desc = "ROS: List SRV Definitions" })
+
+-- Message definitions list & info
+vim.keymap.set("n", "<leader>rdm", function()
+  require("ros-nvim.telescope.pickers").msg_picker()
+end, { desc = "ROS: List MSG Definitions" })
+
+-- Params list & values
+vim.keymap.set("n", "<leader>rpl", function()
+  require("ros-nvim.telescope.pickers").param_picker()
+end, { desc = "ROS: List Parameters" })
+
 -- For Learning
 vim.keymap.set("", "<up>", "<nop>", { noremap = true })
 vim.keymap.set("", "<down>", "<nop>", { noremap = true })
