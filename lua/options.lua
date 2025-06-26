@@ -50,7 +50,8 @@ vim.diagnostic.config({
 	virtual_text = true,
 	severity_sort = true,
 	signs = {
-		text = { [vim.diagnostic.severity.ERROR] = " ",
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
 			[vim.diagnostic.severity.WARN] = " ",
 			[vim.diagnostic.severity.HINT] = " ",
 			[vim.diagnostic.severity.INFO] = "󰌵",
@@ -73,32 +74,32 @@ vim.keymap.set("n", "<leader>ls", ":Telescope ros2 services<CR>", { desc = "[ROS
 
 -- Topics list & info
 vim.keymap.set("n", "<leader>rtl", function()
-  require("ros-nvim.telescope.pickers").topic_picker()
+	require("ros-nvim.telescope.pickers").topic_picker()
 end, { desc = "ROS: List Topics" })
 
 -- Nodes list & info
 vim.keymap.set("n", "<leader>rnl", function()
-  require("ros-nvim.telescope.pickers").node_picker()
+	require("ros-nvim.telescope.pickers").node_picker()
 end, { desc = "ROS: List Nodes" })
 
 -- Services list & info
 vim.keymap.set("n", "<leader>rsl", function()
-  require("ros-nvim.telescope.pickers").service_picker()
+	require("ros-nvim.telescope.pickers").service_picker()
 end, { desc = "ROS: List Services" })
 
 -- Service definitions list & info
 vim.keymap.set("n", "<leader>rds", function()
-  require("ros-nvim.telescope.pickers").srv_picker()
+	require("ros-nvim.telescope.pickers").srv_picker()
 end, { desc = "ROS: List SRV Definitions" })
 
 -- Message definitions list & info
 vim.keymap.set("n", "<leader>rdm", function()
-  require("ros-nvim.telescope.pickers").msg_picker()
+	require("ros-nvim.telescope.pickers").msg_picker()
 end, { desc = "ROS: List MSG Definitions" })
 
 -- Params list & values
 vim.keymap.set("n", "<leader>rpl", function()
-  require("ros-nvim.telescope.pickers").param_picker()
+	require("ros-nvim.telescope.pickers").param_picker()
 end, { desc = "ROS: List Parameters" })
 
 -- For Learning
