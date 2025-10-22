@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	dependencies = { "echasnovski/mini.ai", version = "*" },
-	lazy = true,
+	lazy = false,
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			textobjects = {
