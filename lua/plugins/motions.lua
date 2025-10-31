@@ -24,15 +24,38 @@ return {
 		end,
 	},
 	{
-		{
-			"francescarpi/buffon.nvim",
-			branch = "main",
-			---@type BuffonConfig
-			opts = {},
-			dependencies = {
-				"nvim-tree/nvim-web-devicons",
-				"nvim-lua/plenary.nvim",
-			},
+		"francescarpi/buffon.nvim",
+		branch = "main",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"nvim-lua/plenary.nvim",
 		},
+		opts = function()
+			-- Pull colors from the active theme so Buffon stays theme-agnostic
+			local get_fg = function(name)
+				local hl = vim.api.nvim_get_hl(0, { name = name })
+				return hl and hl.fg or "#ffffff" -- fallback color
+			end
+
+			return {
+				theme = {
+					unloaded_buffer = get_fg("Comment"),
+					shortcut = get_fg("Keyword"),
+					active = get_fg("Function"),
+					unsaved_indicator = get_fg("Error"),
+				},
+			}
+		end,
+
+		-- Optional: reload Buffon colors when you change colorscheme
+		config = function(_, opts)
+			require("buffon").setup(opts)
+
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				callback = function()
+					require("buffon").setup(opts)
+				end,
+			})
+		end,
 	},
 }
